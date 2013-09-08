@@ -1,5 +1,4 @@
-//more animation~
-@import 'base';
+//更多的动画效果~
 .build {
   > * {
     @include transition(all 0.5s ease-in-out 0.2s);
