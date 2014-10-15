@@ -8,14 +8,14 @@ nodePPT - 让你爱上做分享！
  * 支持单页背景图片
  * 多种模式：overview模式，[双屏模式](#postmessage)，[socket远程控制](#socket)，摇一摇换页，使用ipad控制做分享更酷哦~
  * 可以使用画板，可以使用note做备注
- * 支持语法高亮，自由选择[highlight样式](https://highlightjs.org/)
+ * 支持语法高亮，自由选择highlight样式
  * 可以单页ppt内部动画，单步动画
  * [支持进入/退出回调](#callback)，做在线demo很方便
 
 ## demo
  * http://qdemo.sinaapp.com/
  * 双屏控制：http://qdemo.sinaapp.com/?_multiscreen=1 记得允许弹窗哦~
-
+ * 手机百度前端之路：http://qdemo.sinaapp.com/box-fe-road.htm
 
 ## 安装
 
