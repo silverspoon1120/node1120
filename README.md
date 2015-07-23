@@ -22,7 +22,7 @@ nodePPT - 让你爱上做分享！
  * [支持进入/退出回调](#callback)，做在线demo很方便
  * 支持事件update函数，查看[demo](http://qdemo.sinaapp.com/#12)
  * zoom.js：alt+click
- 
+
 ## 1.2.0新功能
  * 实现watch功能`nodeppt start -w`
  * 增加subslide工具
