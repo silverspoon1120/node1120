@@ -1,7 +1,7 @@
-const name = 'card';
+const name = 'cta';
 module.exports = {
     validate(params) {
-        return params.trim().match(new RegExp('^' + name + '(-\\d+)?\\s*(.*)$'));
+        return params.trim().match(new RegExp('^' + name + '\\s*(.*)$'));
     },
     handler(state, opts) {
         function getOpenToken(tag, level) {
@@ -58,13 +58,7 @@ module.exports = {
                     } else {
                         imgEnd = i;
                     }
-                    if (token.type === 'paragraph_open') {
-                        img.push(getOpenToken('figure', token.level - 1));
-                    } else if (token.type === 'paragraph_close') {
-                        img.push(getCloseToken('figure', token.level - 1));
-                    } else {
-                        img.push(token);
-                    }
+                    img.push(token);
                 } else {
                     if (!ctxStart) {
                         ctxStart = i;
@@ -77,28 +71,26 @@ module.exports = {
             }
         }
         // 分组完成
-        tokens.splice(imgStart, imgEnd - imgStart + 1, ...img);
+        const divNumber = getOpenToken('div', level - 1);
+        divNumber.attrPush(['class', 'number']);
+        tokens.splice(imgStart, imgEnd - imgStart + 1, divNumber, ...img, getCloseToken('div', level - 1));
+
         const divToken = getOpenToken('div', level - 1);
-        divToken.attrPush(['class', 'flex-content']);
-        tokens.splice(ctxStart, ctxEnd - ctxStart + 1, divToken, ...context, getCloseToken('div', level - 1));
+        divToken.attrPush(['class', 'benefit']);
+        tokens.splice(ctxStart + 2, ctxEnd - ctxStart + 3, divToken, ...context, getCloseToken('div', level - 1));
         return state;
     },
     render(tokens, idx) {
         const token = tokens[idx];
         if (token.nesting === 1) {
-            let info = token.info.split(' ').shift();
-
             const cmIndex = token.attrIndex('css-module');
             let clsIndex = token.attrIndex('class');
             let attrs = token.attrs || [];
-            if (info === 'card') {
-                info = 'card-50';
-            }
 
             if (clsIndex >= 0) {
-                attrs[clsIndex][1] += cmIndex >= 0 ? ` ${info} bg-white ${attrs[cmIndex][1]}` : ` ${info} bg-white`;
+                attrs[clsIndex][1] += cmIndex >= 0 ? ` cta ${attrs[cmIndex][1]}` : ` cta`;
             } else {
-                attrs.push(['class', cmIndex >= 0 ? ` ${info} bg-white ${attrs[cmIndex][1]}` : ` ${info} bg-white`]);
+                attrs.push(['class', cmIndex >= 0 ? ` cta ${attrs[cmIndex][1]}` : ` cta`]);
             }
 
             attrs = attrs.map(([key, value]) => {

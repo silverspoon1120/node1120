@@ -1,12 +1,12 @@
 title: nodeppt markdown 演示
 speaker: 三水清
 url: https://github.com/ksky521/nodeppt
-transition: slide3
-files: /js/demo.js,/css/demo.css,/js/zoom.js
-theme: moon
+js:
+    - https://www.echartsjs.com/asset/theme/shine.js
+prismTheme: solarizedlight
 plugins:
-
-- echarts
+    - echarts
+    - katex
 
 <slide class="bg-purple aligncenter" image="https://source.unsplash.com/C1HhAQrbykQ/ .dark">
 
@@ -14,11 +14,18 @@ plugins:
 
 ## 这可能是迄今为止最好的网页版演示库
 
-<slide video="https://webslides.tv/static/videos/peggy.mp4 .dark https://webslides.tv/static/images/peggy.jpg">
+<slide class="bg-blue aligncenter" video='https://webslides.tv/static/videos/peggy.mp4 .dark poster="https://webslides.tv/static/images/peggy.jpg"'>
+
+# 为什么选择 nodeppt
+
+`section.bg-blue > .background-video.dark` or `.light`
+
+
+<slide>
 
 ## 为什么选择 nodeppt
 
-- 基于 GFM 的 markdown 语法编写 {..rollIn}
+- 基于 GFM 的 markdown 语法编写
 - 支持 html 混排，再复杂的 demo 也可以做！
 - 导出网页或者 pdf 更容易分享
 - 支持单页背景图片
@@ -27,12 +34,13 @@ plugins:
 - 支持语法高亮，自由选择 highlight 样式
 - 可以单页 ppt 内部动效，单步动效
 - 支持进入/退出回调，做在线 demo 很方便
+{.rollIn}
 
 <slide>
 
 ## 为什么选择 nodeppt
 
-:::column {..vertical-align}
+:::column {.vertical-align}
 
 - 基于 GFM 的 markdown 语法编写
 - 支持 html 混排，再复杂的 demo 也可以做！
@@ -88,15 +96,16 @@ Test your web and mobile designs, and quickly incorporate user feedback.
 :::
 
 <slide>
+
+::: {.content-left}
 ## button
 
-[! .button]()
+[.button](){.button} [.button.radius](){.button.radius}
 
-[!.raduis .button.raduis]()
+[.button.ghost](){.button.ghost} [:fa-github: svg-icon](){.button}
+:::
 
-[!.ghost .button.ghost]()
 
-[! :fa-github: svg-icon]()
 
 <slide :class="size-50">
 ### Let's check out some examples.
@@ -104,7 +113,7 @@ All content is for demo purposes only.
 
 ---
 
-1. Welcomes {..text-cols}
+1. Welcomes
 2. Covers
 3. Abouts & Teams
 4. Features & Benefits
@@ -118,6 +127,7 @@ All content is for demo purposes only.
 12. Logos
 13. CSS Animations
 14. Embedding videos, maps, charts...
+{.text-cols}
 
 <slide class="aligncenter">
 
@@ -186,6 +196,20 @@ Location Intelligence {.text-subtitle}
 
 ## **The application of geographic mapping to data**
 
+
+<slide image="https://source.unsplash.com/YMOHw3F1Hdk/">
+
+::: {.alignright.size-50.bg-trans-dark}
+New in London {.text-subtitle.text-serif}
+### **Hotel Daenerys**
+
+The Daenerys has facilities such as a 24-hour front desk, an elevator with access to all rooms, and a terrace with a garden where guests can enjoy breakfast during the summer.
+
+[More info]()
+
+:::
+
+
 <slide :class="aligncenter">
 
 ## **Abouts & Teams**
@@ -203,6 +227,195 @@ Location Intelligence {.text-subtitle}
 ---
 
 !![div](https://webslides.tv/static/images/logos/microsoft.svg)
+
+:::
+
+<slide>
+
+::: {.content-center}
+### ul.flexblock.specs
+
+:::specs
+
+## :fa-long-arrow-right: SIMPLE NAVIGATION
+with arrow keys and swipe.
+
+----
+
+## :fa-link: Permalinks
+Go to a specific slide. URL: #slide=number
+
+---
+
+## :fa-text-height: SVG ICONS
+Font Awesome Kit.
+
+:::
+:::
+
+<slide class="bg-red" image="https://source.unsplash.com/R1J6Z1cnJZc/ .dark">
+
+:::cta
+
+!![](https://webslides.tv/static/images/logos/netflix.svg .whitelogo)
+
+---
+
+## Watch TV shows anytime, anywhere
+
+.frame.bg-red
+
+:::
+
+<slide class="bg-red frame">
+
+:::cta
+
+::^$^40::
+
+---
+
+## Watch TV shows anytime, anywhere
+
+.frame.bg-red
+
+:::
+
+<slide class="bg-dark">
+
+## Flexbox
+
+:::flexbox
+
+Founded
+
+----
+
+
+24M Subscribers
+
+
+---
+
+Founded
+
+----
+
+
+Revenue: $16M
+
+---
+
+
+Covers, cards, quotes...
+
+----
+
+
+Use multiples of 8.
+
+---
+
+
+Font Awesome Kit.
+
+---
+
+
+Bank: $32M
+
+:::
+
+<slide>
+
+<slide class="bg-green">
+
+## Metrics
+
+:::flexbox {.border.metrics}
+
+Founded
+::1972::
+
+----
+
+::fa-users::
+
+24M Subscribers
+
+
+---
+
+Founded
+::64%::
+
+----
+
+:~fa-line-chart~:
+
+Revenue: $16M
+
+---
+
+:~fa-building-o~:
+
+Covers, cards, quotes...
+
+----
+
+:~fa-smile-o~:
+
+Use multiples of 8.
+
+---
+
+:~fa-usd~:
+
+Font Awesome Kit.
+
+---
+
+:~fa-university~:
+
+Bank: $32M
+
+:::
+
+<slide>
+
+## Features
+
+:::features
+
+## ::→:: SIMPLE NAVIGATION
+with arrow keys and swipe.
+
+----
+
+## :fa-link: Permalinks
+
+Go to a specific slide.
+
+---
+
+## :fa-clock-o: Permalinks
+
+Go to a specific slide.
+
+----
+
+## ::40+:: BEAUTIFUL COMPONENTS
+Covers, cards, quotes...
+
+----
+
+## :fa-text-height: VERTICAL RHYTHM
+Use multiples of 8.
+
+---
+
+## ::500+:: SVG ICONS
+Font Awesome Kit.
 
 :::
 
@@ -249,7 +462,7 @@ When you're really passionate about your job, you can change the world.
 
 ---
 
-!![div](https://webslides.tv/static/images/logos/google.svg .aligncenter.graylogo)
+!![div .abc](https://webslides.tv/static/images/logos/google.svg .aligncenter.graylogo)
 
 Acme hired us to help make the reading experience totally engaging.
 
@@ -402,35 +615,98 @@ VP of Design
 ## echarts {.aligncenter}
 ```echarts
 {
-      "xAxis": {
-          "type": "category",
-          "data": [
-              "Mon",
-              "Tue",
-              "Wed",
-              "Thu",
-              "Fri",
-              "Sat",
-              "Sun"
-          ]
-      },
-      "yAxis": {
-          "type": "value"
-      },
-      "series": [
-          {
-              "data": [
-                  820,
-                  932,
-                  901,
-                  934,
-                  1290,
-                  1330,
-                  1320
-              ],
-              "type": "line"
-          }
-      ]
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
+    },
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            selectedMode: 'single',
+            radius: [0, '30%'],
+
+            label: {
+                normal: {
+                    position: 'inner'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:335, name:'直达', selected:true},
+                {value:679, name:'营销广告'},
+                {value:1548, name:'搜索引擎'}
+            ]
+        },
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['40%', '55%'],
+            label: {
+                normal: {
+                    formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                    backgroundColor: '#eee',
+                    borderColor: '#aaa',
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    // shadowBlur:3,
+                    // shadowOffsetX: 2,
+                    // shadowOffsetY: 2,
+                    // shadowColor: '#999',
+                    // padding: [0, 7],
+                    rich: {
+                        a: {
+                            color: '#999',
+                            lineHeight: 22,
+                            align: 'center'
+                        },
+                        // abg: {
+                        //     backgroundColor: '#333',
+                        //     width: '100%',
+                        //     align: 'right',
+                        //     height: 22,
+                        //     borderRadius: [4, 4, 0, 0]
+                        // },
+                        hr: {
+                            borderColor: '#aaa',
+                            width: '100%',
+                            borderWidth: 0.5,
+                            height: 0
+                        },
+                        b: {
+                            fontSize: 16,
+                            lineHeight: 33
+                        },
+                        per: {
+                            color: '#eee',
+                            backgroundColor: '#334455',
+                            padding: [2, 4],
+                            borderRadius: 2
+                        }
+                    }
+                }
+            },
+            data:[
+                {value:335, name:'直达'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1048, name:'百度'},
+                {value:251, name:'谷歌'},
+                {value:147, name:'必应'},
+                {value:102, name:'其他'}
+            ]
+        }
+    ]
 }
 
 ```
@@ -450,9 +726,9 @@ Bonsai is a Japanese art form using trees grown in containers — .fullscreen > 
 
 Similar practices exist in other cultures, including the Chinese tradition of penjing from which the art originated, and the miniature living landscapes of Vietnamese hòn non bộ.
 
-
 \* \* \* {.text-symbols}
 
+Similar practices exist in other cultures, including the Chinese tradition of penjing from which the art originated, and the miniature living landscapes of Vietnamese hòn non
 :::
 
 
@@ -473,7 +749,28 @@ Similar practices exist in other cultures, including the Chinese tradition of pe
 
 \* \* \* {.text-symbols}
 
+dfdasfs
 :::
+
+<slide class="bg-gradient-v">
+## table
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :----------- | :------------: | ------------: |
+| git status   |   git status   |    git status |
+| git diff     |    git diff    |      git diff |
+
+
+
+<slide class="bg-gradient-v">
+
+## KaTex {.aligncenter}
+
+| equation                                                                                                                                                                  | description                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| $\nabla \cdot \vec{\mathbf{B}}  = 0$                                                                                                                                      | divergence of $\vec{\mathbf{B}}$ is zero                                               |
+| $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$                                                          | curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$ |
+| $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_                                                                                 |
 
 <slide>
 
@@ -482,9 +779,12 @@ Similar practices exist in other cultures, including the Chinese tradition of pe
 > "I feel guilty as a web designer when I have to use PowerPoint and Keynote. So I made #WebSlides."
 
 
-<slide>
-> I have always appreciated designers who dare to reinterpret fabrics and proportions, so I follow the Japanese and Belgian designers. {.text-quote}
-<cite>Zaha Hadid</cite>
+<slide class="bg-black-blue">
+> I have always appreciated designers who dare to reinterpret fabrics and proportions, so I follow the Japanese and Belgian designers.
+> ==Zaha Hadid==
+> {.text-quote}
+
+
 
 <slide :class="aligncenter fadeInUp">
 ## The little things mean the most
@@ -500,27 +800,4 @@ Similar practices exist in other cultures, including the Chinese tradition of pe
 
 ## h2.fadeIn.slow {.fadeIn.slow}
 
-<slide>
 
-## flexblock
-
-<flexblock>
-# dfdafafa
-
-dfadsfasfasf
-
----
-
-# dfdafafa
-
-dfadsfasfasf
-
----
-
-# dfdafafa
-
-dfadsfasfasf
-dfdasf
-
-</flexblock>
-```
