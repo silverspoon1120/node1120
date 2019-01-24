@@ -5,8 +5,7 @@ module.exports = md => {
         const code = token.content.trim();
         if (token.info === 'echarts') {
             try {
-                // 这里特殊处理下！
-                const json = (1, eval)(`(function(){return ${code};})()`);
+                const json = JSON.parse(code);
                 return `<div class="embed"><div class="echarts" style="min-height:50vw"></div></div><div class="echarts-data" style='display:none'>${JSON.stringify(
                     json
                 )}</div>`;
