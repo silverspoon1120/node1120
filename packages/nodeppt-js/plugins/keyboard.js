@@ -72,14 +72,19 @@ export default class Keyboard {
                 method = this.ws_.goToSlide;
                 argument = this.ws_.maxSlide_ - 1;
                 break;
-            case Keys.RIGHT:
             case Keys.DOWN:
                 method = this.ws_.isVertical ? (this.enable_ ? this.goNext : this.ws_.goNext) : null;
                 break;
-            case Keys.LEFT:
             case Keys.UP:
                 method = this.ws_.isVertical ? (this.enable_ ? this.goPrev : this.ws_.goPrev) : null;
                 break;
+            case Keys.RIGHT:
+                method = !this.ws_.isVertical ? (this.enable_ ? this.goNext : this.ws_.goNext) : null;
+                break;
+            case Keys.LEFT:
+                method = !this.ws_.isVertical ? (this.enable_ ? this.goPrev : this.ws_.goPrev) : null;
+                break;
+
             case Keys.F:
                 if (!event.metaKey && !event.ctrlKey) {
                     method = this.ws_.fullscreen;
@@ -87,7 +92,6 @@ export default class Keyboard {
 
                 break;
         }
-
         if (method) {
             method.call(this.enable_ ? this : this.ws_, argument);
             // Prevents Firefox key events.
